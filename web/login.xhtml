@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>NovoAcadêmico</title>
+	<meta charset="UTF-8"/>
+	<link rel="stylesheet" type="text/css" href="style/login.css"/>	
+</h:head>
+<h:body>
+	<div id="content">
+		<div id="logo">
+			<img src="img/logo.png" alt="logo"/><br/>
+			Novo Acadêmico
+		</div>
+		<h:form id="logon">
+                    <p:messages for="error_login"/>
+                    <div class="login"><p:inputText id="user" value="#{login.usuario}" required="true"/></div>	
+                        <p:watermark for="user" value="Usuario"/>
+                    <div class="login"><p:password id="pass" value="Senha" required="true"/></div>
+                        <p:watermark for="pass" value="Senha"/>
+                    <h:commandButton action="#{login.logar}" class="enter" value="Entrar"/>
+		</h:form>	
+	</div>
+</h:body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>NovoAcadêmico</title>
+	<link rel="stylesheet" type="text/css" href="style/padrao.css">
+	<link rel="stylesheet" type="text/css" href="style/diario.css">
+	<link rel="stylesheet" type="text/css" href="style/submenu.css">
+</head>
+<body>
+	<div id="content">
+		<div id="logo">
+			<img src="img/logo.png" alt="logo"><br>
+			Novo Acadêmico
+		</div>
+		<div class="painel">
+			<ul>
+				<li><a href="index.html">Painel</a></li><li><a href="">Noticias</a></li>
+			</ul>		
+		</div>	
+		<div class="ic_back">
+			<img class="icone_back" alt="voltar" src="img/boletim.png" width="75" height="75">
+			<a href="index.html"><img src="img/back.png" alt="back_arrow"></a>
+		</div>
+		<div class="user">
+			<img src="img/profile-icon.png" alt="usuario"><br>
+			Arlenilton<br>
+			<a href="login.html">Sair</a>
+		</div>		
+		<div class="opcoes">
+			<div class="antes_tabela">
+				<input id="data" type="date">
+				<div class="toright"><input id="checkall" type="checkbox">Todos presentes</div>				
+			</div>
+			<div class="datagrid">
+				<table>
+				<thead><tr><th>Nome</th><th>Faltas</th><th>Presença</th></tr></thead>
+				<tr><td>Fulano de tal</td><td>5</td><td><input type="checkbox"></td></tr>
+				<tr><td>Fulano de tal</td><td>5</td><td><input type="checkbox"></td></tr>
+				<tr><td>Fulano de tal</td><td>5</td><td><input type="checkbox"></td></tr>
+				<tr><td>Fulano de tal</td><td>5</td><td><input type="checkbox"></td></tr>
+				<tr><td>Fulano de tal</td><td>5</td><td><input type="checkbox"></td></tr>				
+				</table>
+			</div>
+			<div class="depois_tabela">
+				<div class="toright"><input id="salvar" type="submit" value="Salvar"></div>
+				Dica: Aperte a barra de espaço para realizar a chamada
+			</div>
+		</div>
+	</div>
+</body>
+</html>

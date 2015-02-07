@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title>NovoAcadêmico</title>
+	<meta charset="UTF-8"/>
+	<link rel="stylesheet" type="text/css" href="style/padrao.css"/>
+</h:head>
+<h:body>
+	<div id="content">
+		<div id="logo">
+			<img src="img/logo.png" alt="logo"><br/>
+			Novo Acadêmico
+		</div>
+		<div class="painel">
+			<ul>
+				<li><a href="index.html">Painel</a></li><li><a href="">Noticias</a></li>					
+			</ul>		
+		</div>
+            <ui:insert class="conteudo" name="body">Default Body</ui:insert>
+		<div class="user">
+			<img src="img/profile-icon.png" alt="usuario"><br/>
+			Arlenilton<br/>
+			<a href="login.html">Sair</a>
+		</div>
+	</div>
+</h:body>
+</html>

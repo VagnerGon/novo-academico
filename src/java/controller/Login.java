@@ -9,6 +9,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
+import model.Usuario;
 
 /**
  *
@@ -19,11 +20,13 @@ import javax.faces.context.FacesContext;
 public class Login {
 
     private String usuario;
+    private Usuario user;
     
     public String logar(){
         
-        if(usuario.equals("teste")){
-            return "index";
+        if(usuario.equals("aluno")){            
+            FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("user", user);
+            return "index";            
         }
         
         FacesContext contexto = FacesContext.getCurrentInstance();

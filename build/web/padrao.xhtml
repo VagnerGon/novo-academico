@@ -4,6 +4,7 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
+        <ui:insert name="head"/> 
 	<title>NovoAcadêmico</title>
 	<meta charset="UTF-8"/>
 	<link rel="stylesheet" type="text/css" href="style/padrao.css"/>
@@ -11,20 +12,20 @@
 <h:body>
 	<div id="content">
 		<div id="logo">
-			<img src="img/logo.png" alt="logo"><br/>
+			<img src="img/logo.png" alt="logo"/><br/>
 			Novo Acadêmico
 		</div>
 		<div class="painel">
 			<ul>
-				<li><a href="index.html">Painel</a></li><li><a href="">Noticias</a></li>					
+				<li><a href="index.xhtml">Painel</a></li><li><a href="">Noticias</a></li>					
 			</ul>		
 		</div>
-            <ui:insert class="conteudo" name="body">Default Body</ui:insert>
-		<div class="user">
-			<img src="img/profile-icon.png" alt="usuario"><br/>
-			Arlenilton<br/>
-			<a href="login.html">Sair</a>
+                 <div class="user">
+			<img src="img/profile-icon.png" alt="usuario"/><br/>
+                        <h:outputText value="#{padrao.user_name}"/><br/>
+                        <h:outputLink value="login.xhtml" >Sair</h:outputLink>
 		</div>
+            <ui:insert class="conteudo" name="body">Default Body</ui:insert>		
 	</div>
 </h:body>
 </html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="padrao.xhtml">
+        
+        <ui:define name="head">  
+            <title>NovoAcadêmico - Notas</title>
+            <link rel="stylesheet" type="text/css" href="style/diario.css"/>
+            <link rel="stylesheet" type="text/css" href="style/submenu.css"/>
+        </ui:define>  
+        
+        <ui:define name="body"> 
+            <h:outputStylesheet value="diario.css" />
+            <h:outputStylesheet value="submenu.css" />
+            <div class="ic_back">
+                    <img class="icone_back" alt="voltar" src="img/notas.png" width="75" height="75" />
+                    <a href="index.xhtml"><img src="img/back.png" alt="back_arrow"/></a>
+            </div>	
+            <div class="opcoes">
+                    <div class="antes_tabela">
+                            <h3>Programação 1</h3>			
+                    </div>
+                    <div class="datagrid">
+                            <table>
+                            <thead><tr><th>Atividade</th><th>Nota</th></tr></thead>
+                            <tr><td>Prova 1</td><td>10</td></tr>
+                            <tr><td>Prova 2</td><td>8</td></tr>
+                            <tr><td>Trabalho 1</td><td>0</td></tr>
+                            </table>
+                    </div>
+                    <div class="antes_tabela">
+                            <h3>Banco de Dados</h3>
+                    </div>
+                    <div class="datagrid">
+                            <table>
+                            <thead><tr><th>Atividade</th><th>Nota</th></tr></thead>
+                            <tr><td>Prova 1</td><td>6</td></tr>
+                            <tr><td>Atividade em sala</td><td>5</td></tr>
+                            <tr><td>Trabalho 1</td><td>8</td></tr>
+                            </table>
+                    </div>
+            </div>
+        </ui:define>
+    </ui:composition>
+</html>

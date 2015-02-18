@@ -10,13 +10,15 @@
                 <h:outputStylesheet value="padrao.css" />
                 <p:dataGrid id="opcoes" var="opcao" value="#{home.opcoes}" columns="3">
                     <h:outputLink value="#{opcao.url}" >
-                        <div class="icon"><p:graphicImage value="img/#{opcao.imagem}" alt="#{opcao.alt}"/><br/>
+                        <div class="icon"><p:graphicImage value="img/#{opcao.imagem}" alt="#{opcao.alt}" /><br/>
                         <h:outputText value="#{opcao.nome}"/><br/></div>
                     </h:outputLink>                    
-
+                
                     <!--p:draggable for="item" revert="true" handle=".ui-panel-titlebar" stack=".ui-panel"/-->
-                </p:dataGrid>               
+                </p:dataGrid>
+                                
             </div>		
-            </ui:define>
+
+        </ui:define>
     </ui:composition>
 </html>

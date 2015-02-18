@@ -9,6 +9,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
+import model.Aluno;
 import model.Usuario;
 
 /**
@@ -24,7 +25,8 @@ public class Login {
     
     public String logar(){
         
-        if(usuario.equals("aluno")){            
+        if(usuario.equals("aluno")){   
+            user = new Aluno();
             FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("user", user);
             return "index";            
         }

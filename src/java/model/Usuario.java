@@ -17,7 +17,11 @@ public abstract class Usuario {
     
     String nome;
     List<Opcoes> opcoes;
-
+    
+    public boolean getVisibilidadeOpcao(Opcoes opcao){
+        return true;
+    }
+    
     public Usuario(){
         opcoes = new ArrayList<>();
     }

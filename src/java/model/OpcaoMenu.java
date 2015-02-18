@@ -5,16 +5,23 @@
  */
 package model;
 
-/**
- *
- * @author Vagmer
- */
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class OpcaoMenu {
     
+    @Id
+    @GeneratedValue
+    private Integer id;
+
     private String url;
     private String nome;
     private String imagem;
     private String alt;
+    private boolean visivel;
+
 
     public OpcaoMenu(String url, String nome, String imagem, String alt) {
         this.url = url;
@@ -32,7 +39,11 @@ public class OpcaoMenu {
 
     public OpcaoMenu() {
     }        
-        
+
+    public void setVisivel(boolean visivel) {
+        this.visivel = visivel;
+    }
+    
     public String getUrl() {
         return url;
     }
@@ -63,6 +74,14 @@ public class OpcaoMenu {
 
     public void setAlt(String alt) {
         this.alt = alt;
+    }
+        
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
     
 }

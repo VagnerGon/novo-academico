@@ -15,6 +15,7 @@ import javax.faces.context.FacesContext;
 import model.OpcaoMenu;
 import model.Opcoes;
 import model.Usuario;
+import org.primefaces.context.RequestContext;
 
 /**
  *
@@ -25,6 +26,7 @@ import model.Usuario;
 public class Home {
 
     private List<OpcaoMenu> opcoes;
+    private List<OpcaoMenu> opcoesOcultas;
     /**
      * Creates a new instance of Home
      */
@@ -34,18 +36,22 @@ public class Home {
         if(usuario == null){
             FacesContext contexto = FacesContext.getCurrentInstance();
             contexto.getExternalContext().redirect("login.xhtml");
-            contexto.addMessage("error_login", new FacesMessage(FacesMessage.SEVERITY_ERROR, "Você precisa estar logado para acessar esta área", "Acesso negado"));            
-            return;
+            contexto.addMessage("error_login", new FacesMessage(FacesMessage.SEVERITY_ERROR, "Você precisa estar logado para acessar esta área", "Acesso negado"));                       
         }
-                
         opcoes = new ArrayList<>();
-        for(Opcoes opcao : usuario.getOpcoes()){
-           opcoes.add(new OpcaoMenu(opcao));
+        for(Opcoes opcao : usuario.getOpcoes()){   
+            
+            OpcaoMenu opcaoMenu = new OpcaoMenu(opcao);
+            
+            if(usuario.getVisibilidadeOpcao(opcao))
+                opcoes.add(opcaoMenu);
+            else
+                opcoesOcultas.add(opcaoMenu);            
         }
     }
-    
-    public String link(){
-        return "diario.xhtml";
+        
+    public void adicionarElemento(){
+        RequestContext.getCurrentInstance().openDialog("adicionarCarro");
     }
 
     public List<OpcaoMenu> getOpcoes() {
@@ -54,6 +60,14 @@ public class Home {
 
     public void setOpcoes(List<OpcaoMenu> opcoes) {
         this.opcoes = opcoes;
+    }
+
+    public List<OpcaoMenu> getOpcoesOcultas() {
+        return opcoesOcultas;
+    }
+
+    public void setOpcoesOcultas(List<OpcaoMenu> opcoesOcultas) {
+        this.opcoesOcultas = opcoesOcultas;
     }
         
 }

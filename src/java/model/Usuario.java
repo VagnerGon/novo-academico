@@ -2,6 +2,9 @@ package model;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -13,9 +16,16 @@ import java.util.List;
  *
  * @author Vagmer
  */
+@Entity
 public abstract class Usuario {
     
+    @Id
+    @GeneratedValue
+    private Integer id;    
+    
     String nome;
+    String senha;
+    
     List<Opcoes> opcoes;
     
     public boolean getVisibilidadeOpcao(Opcoes opcao){
@@ -36,6 +46,14 @@ public abstract class Usuario {
     
     public List<Opcoes> getOpcoes() {
         return opcoes;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 
     public void setOpcoes(List<Opcoes> opcoes) {

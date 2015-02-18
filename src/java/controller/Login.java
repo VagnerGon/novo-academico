@@ -5,6 +5,7 @@
  */
 package controller;
 
+import crud.UsuarioCRUD;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -21,14 +22,24 @@ import model.Usuario;
 public class Login {
 
     private String usuario;
+    private String senha;
+    
     private Usuario user;
     
     public String logar(){
         
+        UsuarioCRUD users = new UsuarioCRUD();
+        user = users.buscarLogin(usuario);
+        if(user != null){
+            if(user.getSenha().equals(senha)){
+                FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("user", user);
+                return "index";
+            }
+        }        
         if(usuario.equals("aluno")){   
             user = new Aluno();
             FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("user", user);
-            return "index";            
+            return "index";
         }
         
         FacesContext contexto = FacesContext.getCurrentInstance();
@@ -42,6 +53,14 @@ public class Login {
 
     public void setUsuario(String usuario) {
         this.usuario = usuario;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
     
     public Login() {

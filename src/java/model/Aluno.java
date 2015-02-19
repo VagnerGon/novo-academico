@@ -2,6 +2,9 @@ package model;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -14,10 +17,25 @@ import java.util.List;
  * @author Vagmer
  */
 public class Aluno extends Usuario{
-       
+      
+    @Id
+    @GeneratedValue
+    private Integer id;
+    
     public Aluno() {        
-        super.opcoes.add(Opcoes.NOTAS);
-        super.opcoes.add(Opcoes.CALENDARIO);
-        super.opcoes.add(Opcoes.MATRICULA);        
+        super.addOpcaoMenu(Opcoes.NOTAS);
+        super.addOpcaoMenu(Opcoes.CALENDARIO);
+        super.addOpcaoMenu(Opcoes.MATRICULA);        
     }          
+        
+    @Override
+    public Integer getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(Integer id) {
+        this.id = id;
+    }
+    
 }

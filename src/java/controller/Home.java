@@ -39,14 +39,14 @@ public class Home {
             contexto.addMessage("error_login", new FacesMessage(FacesMessage.SEVERITY_ERROR, "Você precisa estar logado para acessar esta área", "Acesso negado"));                       
         }
         opcoes = new ArrayList<>();
-        for(Opcoes opcao : usuario.getOpcoes()){   
+        for(OpcaoMenu opcao : usuario.getOpcoes()){   
             
-            OpcaoMenu opcaoMenu = new OpcaoMenu(opcao);
+            //OpcaoMenu opcaoMenu = new OpcaoMenu(opcao);
             
             if(usuario.getVisibilidadeOpcao(opcao))
-                opcoes.add(opcaoMenu);
+                opcoes.add(opcao);
             else
-                opcoesOcultas.add(opcaoMenu);            
+                opcoesOcultas.add(opcao);            
         }
     }
         

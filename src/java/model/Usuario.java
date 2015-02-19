@@ -2,9 +2,11 @@ package model;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -23,13 +25,19 @@ public abstract class Usuario {
     @GeneratedValue
     private Integer id;    
     
+    @Column(name = "nome",unique=true)
     String nome;
     String senha;
     
-    List<Opcoes> opcoes;
+    @OneToMany(targetEntity = OpcaoMenu.class)
+    List<OpcaoMenu> opcoes;
     
-    public boolean getVisibilidadeOpcao(Opcoes opcao){
+    public boolean getVisibilidadeOpcao(OpcaoMenu opcao){
         return true;
+    }
+    
+    protected void addOpcaoMenu(Opcoes opcao){
+        this.opcoes.add(new OpcaoMenu(opcao));
     }
     
     public Usuario(){
@@ -43,8 +51,8 @@ public abstract class Usuario {
     public void setNome(String nome) {
         this.nome = nome;
     }
-    
-    public List<Opcoes> getOpcoes() {
+        
+    public List<OpcaoMenu> getOpcoes() {
         return opcoes;
     }
 
@@ -56,8 +64,16 @@ public abstract class Usuario {
         this.senha = senha;
     }
 
-    public void setOpcoes(List<Opcoes> opcoes) {
+    public void setOpcoes(List<OpcaoMenu> opcoes) {
         this.opcoes = opcoes;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
     
 }

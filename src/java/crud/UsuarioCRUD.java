@@ -112,13 +112,13 @@ public class UsuarioCRUD {
             transacao.commit();
             return user;
         }catch(HibernateException e){
-            System.out.println(e.getMessage());
+            e.printStackTrace();
             return null;
         }finally{
             try{
                 sessao.close();
             }catch (Throwable e){
-                System.out.println(e.getMessage());
+                e.printStackTrace();
             }
         }
     }
